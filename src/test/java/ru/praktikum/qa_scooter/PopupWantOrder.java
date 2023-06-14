@@ -1,4 +1,4 @@
-package PageObject;
+package ru.praktikum.qa_scooter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,12 +14,12 @@ public class PopupWantOrder {
     }
 
     //Кнопка "Да" в окне Хотите оформить заказ
-    private By orderButtonOrderYes = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]");
+    private By orderButtonOrderYes = By.xpath(".//button[text() = 'Да']");
 
     public PopupOrderDecoration windowWantOrder(){
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(orderButtonOrderYes));
-        driver.findElement(orderButtonOrderYes).click();
+             .until(ExpectedConditions.elementToBeClickable(orderButtonOrderYes));
+                  driver.findElement(orderButtonOrderYes).click();
     return new PopupOrderDecoration(driver);
     }
 

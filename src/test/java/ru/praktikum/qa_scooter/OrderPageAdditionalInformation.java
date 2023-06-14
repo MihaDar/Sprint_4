@@ -1,36 +1,36 @@
-package PageObject;
+package ru.praktikum.qa_scooter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OrderPage_2 {
+public class OrderPageAdditionalInformation {
 
     private WebDriver driver;
-    public OrderPage_2(WebDriver driver){
+    public OrderPageAdditionalInformation(WebDriver driver){
         this.driver = driver;
     }
 
-    // Поле когда привезти самокат
-    private By fieldDeliveryDate = By.xpath(".//div[2]/div[1]/div/div/input");
+    // Поле когда привезти самокат placeholder
+    private By fieldDeliveryDate = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
 
     // Поле страници чтобы снять фокус с календаря
-    private By removeFocus = By.xpath("/html/body/div/div/div[2]/div[1]");
+    private By removeFocus = By.xpath(".//div[text() = 'Про аренду']");
 
     // Поле срок аренды
-    private By fieldRentPeriod = By.xpath(".//div[2]/div[2]/div[2]/div[1]/div[1]");
+    private By fieldRentPeriod = By.xpath(".//div[text() = '* Срок аренды']");
 
     // Поле цвет самоката
-    private By fieldColor = By.xpath(".//div/div[2]/div[2]/div[3]/div");
-
+    private By fieldColor = By.xpath(".//div[text() = 'Цвет самоката']");
 
     // Поле Коммертарий
-    private By fieldComment = By.xpath(".//div[2]/div[4]/input");
+    private By fieldComment = By.xpath(".//input[@placeholder = 'Комментарий для курьера']");
 
     // Верхняя Кнопка Заказать
     private By orderButtonOrderPage_2Up = By.className("Button_Button__ra12g");
 
     // Нижняя Кнопка Заказать
-    private By orderButtonDownOrder = By.xpath("/html/body/div/div/div[2]/div[3]/button[2]");
+    private By orderButtonDownOrder = By.xpath(".//div/div[2]/div[3]/button[2]");
+
 
     public void inputFieldDeliveryDate (String deliveryDate){
         driver.findElement(fieldDeliveryDate).sendKeys(deliveryDate);
@@ -39,7 +39,7 @@ public class OrderPage_2 {
 
     public void inputFieldRentPeriod (String rentPeriod){
         driver.findElement(fieldRentPeriod).click();
-        driver.findElement(By.xpath(/* Выбор из списка */".//div[@class = 'Dropdown-option' and text() = '"+rentPeriod+"']")).click();
+        driver.findElement(By.xpath(/* Выбор из списка срок аренды */".//div[@class = 'Dropdown-option' and text() = '"+rentPeriod+"']")).click();
     }
 
     public void inputFieldColor (String color){

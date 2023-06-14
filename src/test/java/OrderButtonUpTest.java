@@ -1,22 +1,19 @@
-import PageObject.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
+import ru.praktikum.qa_scooter.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.praktikum.qa_scooter.HomePage;
+import ru.praktikum.qa_scooter.OrderPageAdditionalInformation;
+import ru.praktikum.qa_scooter.OrderPageUserData;
+import ru.praktikum.qa_scooter.PopupOrderDecoration;
+import ru.praktikum.qa_scooter.PopupWantOrder;
 
 // ТЕСТ ВТОРОГО СЦЕНАРИЯ ПРИ ИСПОЛЬЗОВАНИИ ВЕРХНИХ КНОПОК ЗАКАЗАТЬ
 
 @RunWith(Parameterized.class)
 
-public class OrderButtonUpTest {
-    private WebDriver driver;
+public class OrderButtonUpTest extends BaseTest{
+
     private final String name;
     private final String surname;
     private final String address;
@@ -47,54 +44,48 @@ public class OrderButtonUpTest {
         };
     }
 
-    @Before
-    public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
-        //WebDriverManager.chromedriver().setup();
-        //driver = new ChromeDriver();
-    }
 
     @Test
     public void testOrderButtonDown() {
 
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        final String urlScooter = "https://qa-scooter.praktikum-services.ru/"; // исправление 1
+        driver.get(urlScooter);
 
-        HomePage objHomePage = new HomePage(driver);
+        HomePage homePage = new HomePage(driver);
 
-        objHomePage.buttonCookie();
-        objHomePage.orderButtonUp();
+        homePage.buttonCookie();
+        homePage.orderButtonUp();
 
-        OrderPage_1 objOrderPage_1 = new OrderPage_1(driver);
+        OrderPageUserData orderPage_UserData = new OrderPageUserData(driver);
 
-        objOrderPage_1.inputFieldName(name);
-        objOrderPage_1.inputFieldSurname(surname);
-        objOrderPage_1.inputFieldAddress(address);
-        objOrderPage_1.inputFieldMetroStation(metroStation);
-        objOrderPage_1.inputFieldTelephone(telephone);
-        objOrderPage_1.clikOrderNextButton();
+        orderPage_UserData.inputFieldName(name);
+        orderPage_UserData.inputFieldSurname(surname);
+        orderPage_UserData.inputFieldAddress(address);
+        orderPage_UserData.inputFieldMetroStation(metroStation);
+        orderPage_UserData.inputFieldTelephone(telephone);
+        orderPage_UserData.clikOrderNextButton();
 
-        OrderPage_2 objOrderPage_2 = new OrderPage_2(driver);
+        OrderPageAdditionalInformation orderPage_AdditionalInformation = new OrderPageAdditionalInformation(driver);
 
-        objOrderPage_2.inputFieldDeliveryDate(deliveryDate);
-        objOrderPage_2.inputFieldRentPeriod(rentPeriod);
-        objOrderPage_2.inputFieldColor(color);
-        objOrderPage_2.inputFieldComment(comment);
-        objOrderPage_2.orderButtonOrderPage_2Up();
+        orderPage_AdditionalInformation.inputFieldDeliveryDate(deliveryDate);
+        orderPage_AdditionalInformation.inputFieldRentPeriod(rentPeriod);
+        orderPage_AdditionalInformation.inputFieldColor(color);
+        orderPage_AdditionalInformation.inputFieldComment(comment);
+        orderPage_AdditionalInformation.orderButtonOrderPage_2Up();
 
-        PopupWantOrder objPopupWantOrder = new PopupWantOrder(driver);
+        PopupWantOrder popupWantOrder = new PopupWantOrder(driver);
 
-        objPopupWantOrder.windowWantOrder();
+        popupWantOrder.windowWantOrder();
 
-        PopupOrderDecoration objPopupOrderDecoration = new PopupOrderDecoration(driver);
+        PopupOrderDecoration popupOrderDecoration = new PopupOrderDecoration(driver);
 
-        objPopupOrderDecoration.windowOrderDecoration();
+        popupOrderDecoration.orderPlaced(); // появилось сообщение Заказ оформлен
+        popupOrderDecoration.clikButtonStatus(); // Кнопка Посмотреть статус
 
+        OrderWindow orderWindow = new OrderWindow(driver);
+
+        orderWindow.scooterInStock(); // Заголовок в окне заказа "Самокат на складе"
 
     }
 
-    @After
-    public void teardown() {
-        driver.quit();
-    }
 }
