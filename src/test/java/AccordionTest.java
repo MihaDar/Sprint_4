@@ -2,6 +2,7 @@ import ru.praktikum.qa_scooter.HomePage;
 import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import static ru.praktikum.qa_scooter.Url.URLSCOOTER;
 
 
 // ТЕСТ АККОРДИОНА
@@ -10,8 +11,7 @@ public class AccordionTest extends BaseTest{
     @Test
     public void testAccordion(){
 
-        final String urlScooter = "https://qa-scooter.praktikum-services.ru/";
-        driver.get(urlScooter);
+        driver.get(URLSCOOTER);
 
         HomePage homePage = new HomePage(driver);
 

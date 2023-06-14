@@ -8,6 +8,8 @@ import ru.praktikum.qa_scooter.OrderPageUserData;
 import ru.praktikum.qa_scooter.PopupOrderDecoration;
 import ru.praktikum.qa_scooter.PopupWantOrder;
 
+import static ru.praktikum.qa_scooter.Url.URLSCOOTER;
+
 // ТЕСТ ВТОРОГО СЦЕНАРИЯ ПРИ ИСПОЛЬЗОВАНИИ ВЕРХНИХ КНОПОК ЗАКАЗАТЬ
 
 @RunWith(Parameterized.class)
@@ -48,8 +50,7 @@ public class OrderButtonUpTest extends BaseTest{
     @Test
     public void testOrderButtonDown() {
 
-        final String urlScooter = "https://qa-scooter.praktikum-services.ru/"; // исправление 1
-        driver.get(urlScooter);
+        driver.get(URLSCOOTER);
 
         HomePage homePage = new HomePage(driver);
 
