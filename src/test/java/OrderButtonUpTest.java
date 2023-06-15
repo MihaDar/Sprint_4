@@ -8,7 +8,7 @@ import ru.praktikum.qa_scooter.OrderPageUserData;
 import ru.praktikum.qa_scooter.PopupOrderDecoration;
 import ru.praktikum.qa_scooter.PopupWantOrder;
 
-import static ru.praktikum.qa_scooter.Url.URLSCOOTER;
+import static ru.praktikum.qa_scooter.Url.URL_SCOOTER;
 
 // ТЕСТ ВТОРОГО СЦЕНАРИЯ ПРИ ИСПОЛЬЗОВАНИИ ВЕРХНИХ КНОПОК ЗАКАЗАТЬ
 
@@ -39,7 +39,7 @@ public class OrderButtonUpTest extends BaseTest{
     }
 
     @Parameterized.Parameters
-    public static Object[][] getOrderPage_1() {
+    public static Object[][] getOrderPageData() {
         return new Object[][] {
                 {"Иван", "Иванов", "Москва 11", "Римская", "+74951234567", "01.07.2023", "двое суток", "black", "Жду с нетерпением!"},
                 {"Вася", "Васильев", "Москва 22", "Черкизовская", "+74957654321", "15.07.2023", "пятеро суток", "grey", "Привозите скорее."},
@@ -48,31 +48,31 @@ public class OrderButtonUpTest extends BaseTest{
 
 
     @Test
-    public void testOrderButtonDown() {
+    public void testOrderButtonUpTest() {
 
-        driver.get(URLSCOOTER);
+        driver.get(URL_SCOOTER);
 
         HomePage homePage = new HomePage(driver);
 
         homePage.buttonCookie();
         homePage.orderButtonUp();
 
-        OrderPageUserData orderPage_UserData = new OrderPageUserData(driver);
+        OrderPageUserData orderPageUserData = new OrderPageUserData(driver);
 
-        orderPage_UserData.inputFieldName(name);
-        orderPage_UserData.inputFieldSurname(surname);
-        orderPage_UserData.inputFieldAddress(address);
-        orderPage_UserData.inputFieldMetroStation(metroStation);
-        orderPage_UserData.inputFieldTelephone(telephone);
-        orderPage_UserData.clikOrderNextButton();
+        orderPageUserData.inputFieldName(name);
+        orderPageUserData.inputFieldSurname(surname);
+        orderPageUserData.inputFieldAddress(address);
+        orderPageUserData.inputFieldMetroStation(metroStation);
+        orderPageUserData.inputFieldTelephone(telephone);
+        orderPageUserData.clikOrderNextButton();
 
-        OrderPageAdditionalInformation orderPage_AdditionalInformation = new OrderPageAdditionalInformation(driver);
+        OrderPageAdditionalInformation orderPageAdditionalInformation = new OrderPageAdditionalInformation(driver);
 
-        orderPage_AdditionalInformation.inputFieldDeliveryDate(deliveryDate);
-        orderPage_AdditionalInformation.inputFieldRentPeriod(rentPeriod);
-        orderPage_AdditionalInformation.inputFieldColor(color);
-        orderPage_AdditionalInformation.inputFieldComment(comment);
-        orderPage_AdditionalInformation.orderButtonOrderPage_2Up();
+        orderPageAdditionalInformation.inputFieldDeliveryDate(deliveryDate);
+        orderPageAdditionalInformation.inputFieldRentPeriod(rentPeriod);
+        orderPageAdditionalInformation.inputFieldColor(color);
+        orderPageAdditionalInformation.inputFieldComment(comment);
+        orderPageAdditionalInformation.orderButtonOrderPage_2Up();
 
         PopupWantOrder popupWantOrder = new PopupWantOrder(driver);
 

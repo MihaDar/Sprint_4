@@ -22,5 +22,4 @@ public class PopupWantOrder {
                   driver.findElement(orderButtonOrderYes).click();
     return new PopupOrderDecoration(driver);
     }
-
 }

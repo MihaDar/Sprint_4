@@ -19,8 +19,5 @@ public class OrderWindow {
 
     public void scooterInStock(){
         new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOfElementLocated(scooterInStock));
-
     }
-
-
 }
