@@ -26,39 +26,43 @@ public class OrderPageAdditionalInformation {
     private By fieldComment = By.xpath(".//input[@placeholder = 'Комментарий для курьера']");
 
     // Верхняя Кнопка Заказать
-    private By orderButtonOrderPage_2Up = By.className("Button_Button__ra12g");
+    private By orderButtonOrderPage2Up = By.className("Button_Button__ra12g");
 
     // Нижняя Кнопка Заказать
     private By orderButtonDownOrder = By.xpath(".//div/div[2]/div[3]/button[2]");
 
-
+    // Выбор даты доставки
     public void inputFieldDeliveryDate (String deliveryDate){
         driver.findElement(fieldDeliveryDate).sendKeys(deliveryDate);
         driver.findElement(removeFocus).click();
     }
 
+    // Выбор срока аренды
     public void inputFieldRentPeriod (String rentPeriod){
         driver.findElement(fieldRentPeriod).click();
         driver.findElement(By.xpath(/* Выбор из списка срок аренды */".//div[@class = 'Dropdown-option' and text() = '"+rentPeriod+"']")).click();
     }
 
+    // Выбор цвета самоката
     public void inputFieldColor (String color){
         driver.findElement(fieldColor).click();
         driver.findElement(By.xpath(".//input[@id = '"+color+"']")).click();
     }
 
+    // Ввод коментария
     public void inputFieldComment (String comment){
         driver.findElement(fieldComment).sendKeys(comment);
     }
 
+    // Клик по нижней кнопке Заказать
     public PopupWantOrder orderButtonDownOrder(){
         driver.findElement(orderButtonDownOrder).click();
     return new PopupWantOrder(driver);
     }
 
-    public PopupWantOrder orderButtonOrderPage_2Up(){
-        driver.findElement(orderButtonOrderPage_2Up).click();
+    // Клик по верхней кнопке Заказать
+    public PopupWantOrder orderButtonOrderPage2Up(){
+        driver.findElement(orderButtonOrderPage2Up).click();
         return new PopupWantOrder(driver);
     }
-
 }

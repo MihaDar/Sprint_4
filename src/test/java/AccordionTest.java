@@ -2,6 +2,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import ru.praktikum.qa_scooter.HomePage;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 import static ru.praktikum.qa_scooter.Url.URL_SCOOTER;
 
 // ТЕСТ АККОРДИОНА
@@ -39,8 +41,7 @@ public class AccordionTest extends BaseTest{
 
         homePage.scrollAccordion();
         homePage.buttonCookie();
-        homePage.clickAccordion(accordionIdNumber);
-
+        assertEquals(homePage.clickAccordion(accordionIdNumber), textAnswer);
     }
 }
 

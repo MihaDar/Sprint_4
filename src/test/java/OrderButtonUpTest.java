@@ -72,7 +72,7 @@ public class OrderButtonUpTest extends BaseTest{
         orderPageAdditionalInformation.inputFieldRentPeriod(rentPeriod);
         orderPageAdditionalInformation.inputFieldColor(color);
         orderPageAdditionalInformation.inputFieldComment(comment);
-        orderPageAdditionalInformation.orderButtonOrderPage_2Up();
+        orderPageAdditionalInformation.orderButtonOrderPage2Up();
 
         PopupWantOrder popupWantOrder = new PopupWantOrder(driver);
 

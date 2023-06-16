@@ -17,6 +17,7 @@ public class OrderWindow {
     // Заголовок в окне заказа "Самокат на складе"
     private By scooterInStock = By.xpath(".//div[text() = 'Самокат на складе']");
 
+    // Ожидание появления заголовка 'Самокат на складе'
     public void scooterInStock(){
         new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOfElementLocated(scooterInStock));
     }

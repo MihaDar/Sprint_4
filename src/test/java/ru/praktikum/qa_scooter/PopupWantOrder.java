@@ -16,6 +16,7 @@ public class PopupWantOrder {
     //Кнопка "Да" в окне Хотите оформить заказ
     private By orderButtonOrderYes = By.xpath(".//button[text() = 'Да']");
 
+    // Клик по кнопке Да
     public PopupOrderDecoration windowWantOrder(){
         new WebDriverWait(driver, Duration.ofSeconds(3))
              .until(ExpectedConditions.elementToBeClickable(orderButtonOrderYes));
