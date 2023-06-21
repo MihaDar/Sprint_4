@@ -33,7 +33,7 @@ public class AccordionTest extends BaseTest{
     }
 
     @Test
-    public void testAccordion1(){
+    public void testAccordion(){
 
         driver.get(URL_SCOOTER);
 
