@@ -1,4 +1,4 @@
-package ru.praktikum.qa_scooter;
+package qa_scooter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -53,8 +53,8 @@ public class OrderPageUserData {
     }
 
     // Клик по кнопке далее
-    public ru.praktikum.qa_scooter.OrderPageAdditionalInformation clikOrderNextButton(){
+    public OrderPageAdditionalInformation clikOrderNextButton(){
         driver.findElement(orderNextButton).click();
-        return new ru.praktikum.qa_scooter.OrderPageAdditionalInformation(driver);
+        return new OrderPageAdditionalInformation(driver);
     }
 }

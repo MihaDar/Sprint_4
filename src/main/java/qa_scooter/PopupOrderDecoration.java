@@ -1,4 +1,4 @@
-package ru.praktikum.qa_scooter;
+package qa_scooter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,8 +26,8 @@ public class PopupOrderDecoration {
     }
 
     // Клик по кнопке посмотреть статус
-    public ru.praktikum.qa_scooter.OrderWindow clikButtonStatus () {
+    public OrderWindow clikButtonStatus () {
         driver.findElement(buttonStatus).click();
-        return new ru.praktikum.qa_scooter.OrderWindow(driver);
+        return new OrderWindow(driver);
     }
 }

@@ -1,4 +1,4 @@
-package ru.praktikum.qa_scooter;
+package qa_scooter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -51,15 +51,15 @@ public class HomePage {
 
 
     // Клик по нижней кнопке заказать
-    public ru.praktikum.qa_scooter.OrderPageUserData clikButtonOrderHomeDown () {
+    public OrderPageUserData clikButtonOrderHomeDown () {
          driver.findElement(orderButtonDownHome).click();
-         return new ru.praktikum.qa_scooter.OrderPageUserData(driver);
+         return new OrderPageUserData(driver);
     }
 
     // Клик по верхнейней кнопке заказать
-    public ru.praktikum.qa_scooter.OrderPageUserData orderButtonUp () {
+    public OrderPageUserData orderButtonUp () {
         driver.findElement(orderButtonOrderHomeUp).click();
-        return new ru.praktikum.qa_scooter.OrderPageUserData(driver);
+        return new OrderPageUserData(driver);
     }
 
 }

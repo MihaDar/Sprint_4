@@ -1,20 +1,15 @@
-import ru.praktikum.qa_scooter.*;
+import qa_scooter.*;
+//import ru.praktikum.qa_scooter.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.praktikum.qa_scooter.HomePage;
-import ru.praktikum.qa_scooter.OrderPageAdditionalInformation;
-import ru.praktikum.qa_scooter.OrderPageUserData;
-import ru.praktikum.qa_scooter.PopupOrderDecoration;
-import ru.praktikum.qa_scooter.PopupWantOrder;
-
-import static ru.praktikum.qa_scooter.Url.URL_SCOOTER;
+import static qa_scooter.Url.URL_SCOOTER;
 
 // ТЕСТ ВТОРОГО СЦЕНАРИЯ ПРИ ИСПОЛЬЗОВАНИИ ВЕРХНИХ КНОПОК ЗАКАЗАТЬ
 
 @RunWith(Parameterized.class)
 
-public class OrderButtonUpTest extends BaseTest{
+public class OrderButtonUpTest extends BaseTest {
 
     private final String name;
     private final String surname;

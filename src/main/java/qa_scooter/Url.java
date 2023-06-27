@@ -1,4 +1,4 @@
-package ru.praktikum.qa_scooter;
+package qa_scooter;
 
 public class Url {
     // Сайт учебного тренажёра Яндекс Самокат

@@ -1,14 +1,13 @@
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import ru.praktikum.qa_scooter.HomePage;
+import qa_scooter.HomePage;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
-import static ru.praktikum.qa_scooter.Url.URL_SCOOTER;
+import static qa_scooter.Url.URL_SCOOTER;
 
 // ТЕСТ АККОРДИОНА
 @RunWith(Parameterized.class)
-public class AccordionTest extends BaseTest{
+public class AccordionTest extends BaseTest {
 
     private final int accordionIdNumber;
     private final String textAnswer;
