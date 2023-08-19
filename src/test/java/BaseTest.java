@@ -12,10 +12,10 @@ public abstract class BaseTest {
 
     @Before
     public void setUp() {
-       WebDriverManager.firefoxdriver().setup();
-       driver = new FirefoxDriver();
-       // WebDriverManager.chromedriver().setup();
-       // driver = new ChromeDriver();
+//       WebDriverManager.firefoxdriver().setup();
+//       driver = new FirefoxDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 

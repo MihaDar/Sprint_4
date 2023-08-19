@@ -19,6 +19,7 @@ public class OrderWindow {
 
     // Ожидание появления заголовка 'Самокат на складе'
     public void scooterInStock(){
-        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOfElementLocated(scooterInStock));
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.visibilityOfElementLocated(scooterInStock));
     }
 }
